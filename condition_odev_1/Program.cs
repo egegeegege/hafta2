@@ -12,32 +12,39 @@ namespace condition_odev_1
     {
         static void Main(string[] args)
         {
-            // ÖDEV => Kullanıcıdan ilk olarak kullanıcı adı ve daha sonra şifre istenecek.
-            // Eğer kullanıcı adı admin ve şifre 12345 ise sisteme giriş yapıldı Uyarısı gösterilecek.
-            // Eğer kullanıcı adı veya şifre boş girildiyse lütfen boş girmeyiniz uyarısı verilecek.
-            // Eğer kullanıcı adı ve şifre yanlış ise Kullanıcı bulunamadı uyarısı verilecek.
+           // ÖDEV => Kullanıcıdan ilk olarak kullanıcı adı ve daha sonra şifre istenecek.
+// Eğer kullanıcı adı admin ve şifre 12345 ise sisteme giriş yapıldı Uyarısı gösterilecek.
+// Eğer kullanıcı adı veya şifre boş girildiyse lütfen boş girmeyiniz uyarısı verilecek.
+// Eğer kullanıcı adı ve şifre yanlış ise Kullanıcı bulunamadı uyarısı verilecek.
+Console.WriteLine("Kullanıcı Adınızı giriniz");
+string Name=Console.ReadLine();
+Console.WriteLine("Şifernizi giriniz");
+string Pass=Console.ReadLine();
 
-            Console.WriteLine("Kullanıcı Adınızı giriniz");
-            string Ad = Console.ReadLine();
-            Console.WriteLine("Şifrenizi giriniz");
-            string Sifre =Console.ReadLine();
+if (Pass =="12345" && Name == "Admin")
+{
+    Console.WriteLine("Sisteme başarıyla giriş yaptın {0}",Name);
+    Console.ReadLine();
+}
+else
+{
+    if(Pass == "" || Name == "")
+    {
+        Console.WriteLine("Boş yapma");
+        Console.ReadLine();
+    }
+    else if(Pass != "12345")
+    {
+        Console.WriteLine("şifre hatalı");
+        Console.ReadLine();
+    }
+    else if (Name != "Admin")
+    {
+        Console.WriteLine("kullanıcı adı hatalı");
+        Console.ReadLine();
+    }
 
-            string result = Ad ?? "Yok";
-
-
-            if (Sifre == "12345" || Ad == "Admin")
-            {
-                Console.WriteLine("Sisteme giriş yapıldı");
-            }
-            else if (string.IsNullOrWhiteSpace(Ad) || string.IsNullOrWhiteSpace(Sifre))
-            {
-                Console.WriteLine("Lütfen boş girmeyiniz");
-            }
-            else
-            {
-                Console.WriteLine("Kullanıcı bulunamadı");
-            }
-            Console.ReadLine();
+    Console.ReadLine();
         }
     }
 }
